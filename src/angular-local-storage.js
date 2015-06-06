@@ -370,6 +370,10 @@ angularLocalStorage.provider('localStorageService', function() {
     var getStorageType = function() {
       return storageType;
     };
+    
+    var changePrefix = function(localStoragePrefix) {
+      prefix = localStoragePrefix;
+    };
 
     // Add a listener on scope variable to save its changes to local storage
     // Return a function which when called cancels binding
@@ -405,6 +409,7 @@ angularLocalStorage.provider('localStorageService', function() {
 
     return {
       isSupported: browserSupportsLocalStorage,
+      changePrefix: changePrefix,
       getStorageType: getStorageType,
       set: addToLocalStorage,
       add: addToLocalStorage, //DEPRECATED
